@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Cymatics Visualization</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+<body class="dark-mode">
+  <label class="title">Cymatics Visualization<p>Inspired by <a href="https://www.youtube.com/watch?v=C-V1uXeyGmg" target="_blank">Steve Mould's video on the subject.</a></p></label>
+  <div class="controls">
+    <button id="dark-mode-toggle" onclick="toggleDarkMode()">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+    <div class="sliders">
+    <label for="frequency-slider">Select Frequency:
+    <span id="frequency-value">440 Hz</span></label>
+    <input
+      type="range"
+      id="frequency-slider"
+      min="20"
+      max="2000"
+      step="5"
+      value="440"
+      oninput="updateFrequency(this.value)"
+    />
+
+    <label for="backward-slider">Backward Speed:</label>
+    <input
+      type="range"
+      id="backward-slider"
+      min="0"
+      max="100"
+      step="1"
+      value="10"
+      oninput="updateBackwardSpeed(this.value)"
+    />
+    </div>
+    <button id="play-button" onclick="toggleAudio()">
+      <i class="icon-play fa fa-play"></i>
+      <i class="icon-pause fa fa-pause"></i>
+    </button>
+
+    <div class="views">
+    <button onclick="centerCamera()">
+        <i class="fas fa-bullseye"></i>
+    </button>
+    <button onclick="viewLeft()">
+        <i class="fas fa-wave-square"></i>
+    </button>
+</div>
+  </div>
+
+  <script src="sketch.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+/* CSS for the body and dark/light mode */
+:root {
+    --bg-color: #F7F7F8; /* Default background color (light mode) */
+    --text-color: #202123; /* Default text color (light mode) */
+  }
+  
+  body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  
+  /* Dark mode styles */
+  .dark-mode {
+    --bg-color: #202123;
+    --text-color: #F7F7F8;
+    --button-bg-color: #333;
+    --button-text-color: #F7F7F8;
+    --drawing-color: #aaa; /* Customize the color for the drawing */
+  }
+  
+  /* Light mode styles */
+  .light-mode {
+    --bg-color: #F7F7F8;
+    --text-color: #202123;
+    --button-bg-color: #ccc;
+    --button-text-color: #202123;
+    --drawing-color: #555; /* Customize the color for the drawing */
+  }
+  
+  /* Controls layout and positioning */
+  .controls {
+    position: absolute;
+    padding: 10px;
+  }
+  
+  .sliders{
+    position: fixed;
+    left: 50px;
+    top: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+  }
+  
+  #play-button {
+    position: fixed;
+    left: 50%;
+    bottom: 10%;
+    transform: translateX(-50%);
+  }
+
+  
+#dark-mode-toggle {
+    position: fixed;
+    top: 50px;
+    right: 5vw;
+    background-color: transparent;
+    color: var(--text-color);
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid var(--button-text-color);
+    border-radius: 50%;
+}
+/* Hide the sun icon when in dark mode and moon icon when in light mode */
+.dark-mode .fa-sun,
+.light-mode .fa-moon {
+  display: none;
+}
+
+/* Show the sun icon in light mode and moon icon in dark mode */
+.light-mode .fa-sun,
+.dark-mode .fa-moon {
+  display: inline;
+}
+  /* Slider styles */
+  .controls input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    background: var(--button-bg-color);
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  .controls input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--button-text-color);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .controls input[type="range"]::-moz-range-thumb {
+    /* Firefox */
+    width: 20px;
+    height: 20px;
+    background: var(--button-text-color);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  /* Button styles */
+  .controls button {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: var(--button-bg-color);
+    border: 2px solid var(--button-text-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--button-text-color);
+  }
+  
+  .controls button .fa {
+    font-size: 20px;
+  }
+  
+  .controls button.playing .icon-pause {
+    display: inline;
+  }
+  
+  .controls button.playing .icon-play {
+    display: none;
+  }
+  
+  .controls button:not(.playing) .icon-play {
+    display: inline;
+  }
+  
+  .controls button:not(.playing) .icon-pause {
+    display: none;
+  }
+  
+  
+  .views {
+    position: fixed;
+    bottom: 10%;
+    right: 5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+  }
+
+  .title {
+    font-size: 50px;
+    font-family: 'Brush Script MT', cursive;
+    position: fixed;
+    top: 5%;
+    left: 50px;
+}
+.title p{
+    font-size: 20px;
+}
+.title p a{
+    color: var(--text-color);
+    cursor: pointer;
+    z-index: 1003;
+}
